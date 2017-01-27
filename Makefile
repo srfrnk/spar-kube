@@ -11,4 +11,4 @@ push: images
 	make -C application-images/spark push
 
 deploy: git-update
-	kubectl create -f kubernetes/examples/spark
+	kubectl apply -f kubernetes/examples/spark
