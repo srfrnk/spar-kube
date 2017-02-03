@@ -1,4 +1,4 @@
-all: git-update images deploy
+all: git-update images push deploy
 
 git-update:
 	git submodule init
