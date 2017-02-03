@@ -12,3 +12,9 @@ push: images
 
 deploy: git-update
 	kubectl apply -f kubernetes/examples/spark
+
+clean:
+	make -C application-images/spark clean
+
+destroy: git-update
+	kubectl delete -f kubernetes/examples/spark
