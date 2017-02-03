@@ -13,6 +13,14 @@ push: images
 deploy: git-update
 	kubectl apply -f kubernetes/examples/spark
 
+delete-pods: git-update
+	kubectl delete -f kubernetes/examples/spark/spark-master-controller.yaml
+	kubectl delete -f kubernetes/examples/spark/spark-ui-proxy-controller.yaml
+	kubectl delete -f kubernetes/examples/spark/spark-worker-controller.yaml
+	kubectl delete -f kubernetes/examples/spark/zeppelin-controller.yaml
+
+update-pods: git-update delete-pods deploy
+
 clean:
 	make -C application-images/spark clean
 
